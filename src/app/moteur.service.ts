@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, ReplaySubject, of } from 'rxjs';
-import { delay, map, tap } from 'rxjs/operators';
+import {  map, tap } from 'rxjs/operators';
 
 import { Produit } from './models/produit.model';
+import { environnement } from '../environnements/environnement';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +12,32 @@ import { Produit } from './models/produit.model';
 export class MoteurService {  
 
   private produits: Produit[];
+  private lesProduits : Produit[];
   private filteredProduits: Subject<Produit[]> = 
     new ReplaySubject<Produit[]>(1);
 
-  getSearchResults(): Observable<Produit[]> {
+  constructor(private http: HttpClient) { }
+
+  getFilteredProducts(): Observable<Produit[]> {
     return this.filteredProduits.asObservable();
   }
 
-  search(searchTerm: string): Observable<void> {
+  search(filterWord: string, budget : string): Observable<void> {
     return this.fetchProduits().pipe(
       tap((produits: Produit[]) => {
-        produits = produits.filter(produit => produit.nom.toLowerCase().includes(searchTerm));
+        produits = produits.filter(produit => produit.nom.toLowerCase().includes(filterWord));
         this.filteredProduits.next(produits);
+      }),
+      tap((produits: Produit[]) => {
+        if(Number(budget)>0){
+          produits.forEach( leProduit => {
+          
+          if(Number(leProduit.prix) < Number(budget)){
+            this.lesProduits.push(leProduit);
+          }        
+          });
+          this.filteredProduits.next(this.lesProduits);
+        }
       }),
       map(() => void 0)
     );
@@ -31,16 +47,8 @@ export class MoteurService {
     if (this.produits) {
       return of(this.produits);
     }
-    
-    const produits: Produit[] = [
-      { name: 'Lorem ipsum' },
-      { name: 'dolor sit amet' },
-      { name: 'consectetur adipiscing elit' },
-      { name: 'Donec at feugiat' }
-    ];
 
-    return of(produits).pipe(
-      delay(1000),
+    return this.http.get<Produit[]>(environnement.backendProduit).pipe(
       tap((produits: Produit[]) => this.produits = produits)
     );
   }

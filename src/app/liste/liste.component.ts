@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import {ApiService} from '../api.service';
 import { Produit } from '../models/produit.model';
+import { MoteurService } from '../moteur.service';
 
 
 @Component({
@@ -14,10 +14,10 @@ export class ListeComponent implements OnInit {
   produits : Observable<Produit[]>
   filterWord : string;
 
-  constructor(private apiService : ApiService) { }
+  constructor(private moteurService : MoteurService) { }
 
   ngOnInit() {
-    this.produits = this.apiService.getProduits ();
+    this.produits = this.moteurService.getFilteredProducts();
   }
 
 }

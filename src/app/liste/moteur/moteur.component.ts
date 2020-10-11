@@ -13,13 +13,19 @@ export class MoteurComponent implements OnInit {
   }
 
   filterWord = '';
+  budget = '';
 
   ngOnInit() {
-    this.moteurService.search(this.filterWord).subscribe();
+    this.moteurService.search(this.filterWord, this.budget).subscribe();
+    this.moteurService.search(this.filterWord, this.budget).subscribe();
   }
 
   onfilterWordChange(): void {
-    this.moteurService.search(this.filterWord).subscribe();
+    this.moteurService.search(this.filterWord, this.budget).subscribe();
+  }
+
+  onBudgetChange(): void {
+    this.moteurService.search(this.filterWord, this.budget).subscribe();
   }
 
 }

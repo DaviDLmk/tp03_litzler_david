@@ -1,8 +1,8 @@
 [
-  {"nom":"Clavier","description":"Clavier semi mécanique Corsair K55", "prix" : 45},
-  {"nom":"Clavier","description":"Clavier mécanique Vulcan 122 aimo", "prix" : 120},
-  {"nom":"Casque","description":"Casque Corsair Void Pro (Dolby Atmos)", "prix" : 80},
-  {"nom":"Casque","description":"Casque Logitech G430", "prix" : 100},
-  {"nom":"Souris","description":"Souris Roccat Kone", "prix" : 70},
-  {"nom":"Souris","description":"Souris Logitech G300", "prix" : 20}
+  {"nom":"Corsair K55","description":"Clavier semi mécanique RGB", "prix" : 45},
+  {"nom":"Roccat Vulcan 122 AIMO","description":"Clavier mécanique RGB", "prix" : 120},
+  {"nom":"Corsair Void Pro","description":"Casque Dolby Atmos", "prix" : 80},
+  {"nom":"Logitech G430","description":"Casque haut de gamme", "prix" : 100},
+  {"nom":"Roccat Kone AIMO","description":"Souris Gaming – Capteur Optique Owl-Eye Haute Précision (de 100 à 16.000 DPI), Noire", "prix" : 70},
+  {"nom":"Logitech G502 LIGHTSPEED","description":"Souris Gaming sans fil, Capteur Gaming HERO 16K, 16000 PPP, RGB, Ultra-Léger, 11 Boutons Programmables, Batterie Longue Durée, Mémoire intégrée - Noire ", "prix" : 100}
 ]
