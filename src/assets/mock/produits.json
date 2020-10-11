@@ -1,5 +1,8 @@
 [
   {"nom":"Clavier","description":"Clavier semi mécanique Corsair K55", "prix" : 45},
+  {"nom":"Clavier","description":"Clavier mécanique Vulcan 122 aimo", "prix" : 120},
   {"nom":"Casque","description":"Casque Corsair Void Pro (Dolby Atmos)", "prix" : 80},
-  {"nom":"Souris","description":"Souris Roccat Kone", "prix" : 70}
+  {"nom":"Casque","description":"Casque Logitech G430", "prix" : 100},
+  {"nom":"Souris","description":"Souris Roccat Kone", "prix" : 70},
+  {"nom":"Souris","description":"Souris Logitech G300", "prix" : 20}
 ]

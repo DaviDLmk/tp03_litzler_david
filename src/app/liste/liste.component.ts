@@ -12,6 +12,7 @@ import { Produit } from '../models/produit.model';
 export class ListeComponent implements OnInit {
 
   produits : Observable<Produit[]>
+  filterWord : string;
 
   constructor(private apiService : ApiService) { }
 
