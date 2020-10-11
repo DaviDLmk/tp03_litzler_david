@@ -1,0 +1,5 @@
+[
+  {"nom":"Clavier","description":"Clavier semi mécanique Corsair K55", "prix" : 45},
+  {"nom":"Casque","description":"Casque Corsair Void Pro (Dolby Atmos)", "prix" : 80},
+  {"nom":"Souris","description":"Souris Roccat Kone", "prix" : 70}
+]
