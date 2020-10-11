@@ -16,7 +16,8 @@ export class MoteurService {
   private filteredProduits: Subject<Produit[]> = 
     new ReplaySubject<Produit[]>(1);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
 
   getFilteredProducts(): Observable<Produit[]> {
     return this.filteredProduits.asObservable();
@@ -45,11 +46,11 @@ export class MoteurService {
 
   private fetchProduits(): Observable<Produit[]> {
     if (this.produits) {
-      return of(this.produits);
+      return of(this.produits);      
     }
 
     return this.http.get<Produit[]>(environnement.backendProduit).pipe(
-      tap((produits: Produit[]) => this.produits = produits)
+      tap((produits: Produit[]) => this.produits = produits)      
     );
   }
 }
